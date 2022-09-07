@@ -1,9 +1,6 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
-import {
-  responsiveAttachment,
-  ResponsiveAttachmentContract,
-} from '@ioc:Adonis/Addons/ResponsiveAttachment'
+
 import Playlist from './Playlist'
 
 export default class Song extends BaseModel {
@@ -13,8 +10,8 @@ export default class Song extends BaseModel {
   @column()
   public nombre: string
 
-  @responsiveAttachment()
-  public image: ResponsiveAttachmentContract
+  @column()
+  public image: string
 
   @manyToMany(() => Playlist, {
     pivotTable: 'songs_playlists',
